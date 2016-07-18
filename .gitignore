@@ -10,3 +10,9 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.*
+blog-manage/blog-web/.settings
+blog-manage/blog-web/.*
+pom.properties
+blog-manage/blog-web/.settings/org.eclipse.wst.common.component
+blog-manage/blog-web/.classpath
