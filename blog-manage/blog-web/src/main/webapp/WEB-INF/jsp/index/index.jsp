@@ -6,17 +6,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	<script type="text/javascript">
+		var rootPath='<%=rootPath%>';
+		</script>
 		<meta charset="utf-8" />
 		<title>控制台 - Bootstrap后台管理系统模版Ace下载</title>
 		<meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
 		<meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- basic styles -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link href="<%=rootPath%>/stylesheets/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/font-awesome.min.css" />
 
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		  <link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
 
 		<!-- page specific plugin styles -->
@@ -27,25 +30,25 @@
 
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace-skins.min.css" />
 
 		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace-ie.min.css" />
 		<![endif]-->
 
 		<!-- inline styles related to this page -->
 
 		<!-- ace settings handler -->
 
-		<script src="assets/js/ace-extra.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/ace-extra.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js"></script>
-		<script src="assets/js/respond.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/html5shiv.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -218,7 +221,7 @@
 
 								<li>
 									<a href="#">
-										<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<img src="<%=rootPath%>/stylesheets/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -235,7 +238,7 @@
 
 								<li>
 									<a href="#">
-										<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<img src="<%=rootPath%>/stylesheets/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -252,7 +255,7 @@
 
 								<li>
 									<a href="#">
-										<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<img src="<%=rootPath%>/stylesheets/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -278,7 +281,7 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="<%=rootPath%>/stylesheets/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									Jason
@@ -369,7 +372,12 @@
 								<span class="menu-text"> 控制台 </span>
 							</a>
 						</li>
-
+						<li >
+							<a href="<%=rootPath%>/article/toArticle">
+								<i class="icon-dashboard"></i>
+								<span class="menu-text">博客 </span>
+							</a>
+						</li>
 						<li>
 							<a href="typography.html">
 								<i class="icon-text-width"></i>
@@ -1222,7 +1230,7 @@
 															<div class="clearfix">
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="assets/avatars/user.jpg" />
+																		<img alt="Bob Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/user.jpg" />
 																	</div>
 
 																	<div class="body">
@@ -1275,7 +1283,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Joe Doe's avatar" src="assets/avatars/avatar2.png" />
+																		<img alt="Joe Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -1328,7 +1336,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Jim Doe's avatar" src="assets/avatars/avatar.png" />
+																		<img alt="Jim Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -1381,7 +1389,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alex Doe's avatar" src="assets/avatars/avatar5.png" />
+																		<img alt="Alex Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar5.png" />
 																	</div>
 
 																	<div class="body">
@@ -1402,7 +1410,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's avatar" src="assets/avatars/avatar2.png" />
+																		<img alt="Bob Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -1423,7 +1431,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Susan's avatar" src="assets/avatars/avatar3.png" />
+																		<img alt="Susan's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -1444,7 +1452,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Phil Doe's avatar" src="assets/avatars/avatar4.png" />
+																		<img alt="Phil Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar4.png" />
 																	</div>
 
 																	<div class="body">
@@ -1465,7 +1473,7 @@
 
 																<div class="itemdiv memberdiv">
 																	<div class="user">
-																		<img alt="Alexa Doe's avatar" src="assets/avatars/avatar1.png" />
+																		<img alt="Alexa Doe's avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -1502,7 +1510,7 @@
 															<div class="comments">
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Bob Doe's Avatar" src="assets/avatars/avatar.png" />
+																		<img alt="Bob Doe's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar.png" />
 																	</div>
 
 																	<div class="body">
@@ -1558,7 +1566,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Jennifer's Avatar" src="assets/avatars/avatar1.png" />
+																		<img alt="Jennifer's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar1.png" />
 																	</div>
 
 																	<div class="body">
@@ -1592,7 +1600,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Joe's Avatar" src="assets/avatars/avatar2.png" />
+																		<img alt="Joe's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar2.png" />
 																	</div>
 
 																	<div class="body">
@@ -1626,7 +1634,7 @@
 
 																<div class="itemdiv commentdiv">
 																	<div class="user">
-																		<img alt="Rita's Avatar" src="assets/avatars/avatar3.png" />
+																		<img alt="Rita's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar3.png" />
 																	</div>
 
 																	<div class="body">
@@ -1693,7 +1701,7 @@
 													<div class="dialogs">
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="assets/avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar1.png" />
 															</div>
 
 															<div class="body">
@@ -1717,7 +1725,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="John's Avatar" src="assets/avatars/avatar.png" />
+																<img alt="John's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar.png" />
 															</div>
 
 															<div class="body">
@@ -1741,7 +1749,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Bob's Avatar" src="assets/avatars/user.jpg" />
+																<img alt="Bob's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/user.jpg" />
 															</div>
 
 															<div class="body">
@@ -1766,7 +1774,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Jim's Avatar" src="assets/avatars/avatar4.png" />
+																<img alt="Jim's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar4.png" />
 															</div>
 
 															<div class="body">
@@ -1790,7 +1798,7 @@
 
 														<div class="itemdiv dialogdiv">
 															<div class="user">
-																<img alt="Alexa's Avatar" src="assets/avatars/avatar1.png" />
+																<img alt="Alexa's Avatar" src="<%=rootPath%>/stylesheets/assets/avatars/avatar1.png" />
 															</div>
 
 															<div class="body">
@@ -1907,42 +1915,42 @@
 		<!--[if !IE]> -->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
+			window.jQuery || document.write("<script src='<%=rootPath%>/stylesheets/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
 		</script>
 
 		<!-- <![endif]-->
 
 		<!--[if IE]>
 <script type="text/javascript">
- window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
+ window.jQuery || document.write("<script src='<%=rootPath%>/stylesheets/assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
 </script>
 <![endif]-->
 
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+			if("ontouchend" in document) document.write("<script src='<%=rootPath%>/stylesheets/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 		</script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/bootstrap.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/typeahead-bs2.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
-		  <script src="assets/js/excanvas.min.js"></script>
+		  <script src="<%=rootPath%>/stylesheets/assets/js/excanvas.min.js"></script>
 		<![endif]-->
 
-		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="assets/js/jquery.slimscroll.min.js"></script>
-		<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
-		<script src="assets/js/jquery.sparkline.min.js"></script>
-		<script src="assets/js/flot/jquery.flot.min.js"></script>
-		<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/jquery.slimscroll.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/jquery.sparkline.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/flot/jquery.flot.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/flot/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
 
-		<script src="assets/js/ace-elements.min.js"></script>
-		<script src="assets/js/ace.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/ace-elements.min.js"></script>
+		<script src="<%=rootPath%>/stylesheets/assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 

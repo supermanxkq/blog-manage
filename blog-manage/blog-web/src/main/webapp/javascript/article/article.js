@@ -15,17 +15,36 @@ $(function() {
 			type : 'post',
 			success:function(jsonData){
 				$.each(jsonData, function(i, obj) {
-					$(".articleList ul").append(
-							'<li style="margin-bottom: 30px">'+
-						  	'<span class="date"><a href="/blog/articles/147.html">2016年07月16日</a></span>'+
-						  	'<span class="title"><a href="/blog/articles/147.html">'+obj.title+'</a></span>'+
-						  	'<span class="summary">摘要: 首先把九九乘法表给大大看看，以免有些逗逼没见过；我们可以看到 有9行，9列 这里我们肯定知道要用循环嵌套实现；我们这里给下参考答案：public class Test {	public static void main(String[] args) {		for(int i=1;i<=9;i++){			fo...</span>'+
-						  	'<span class="img">'+
-		 					  		'<a href="/blog/articles/147.html"><img src="" title="1468660471743072486.jpg" alt="QQ鎴浘20160716171307.jpg"></a>'+
-						  	'</span>'+
-						  	'<span class="info">发表于'+obj.createTime+' 阅读(111) 评论(2) </span>'+
-						  '</li>'+
-						  '<hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />'	
+					$(".articleList").append(
+							'<tr class="odd">'+
+							'<td class="center  sorting_1">'+
+								'<label>'+
+									'<input type="checkbox" class="ace">'+
+									'<span class="lbl"></span>'+
+								'</label>'+
+							'</td>'+
+							'<td class=" ">'+
+							'<a href="#">'+obj.title+'</a>'+
+							'</td>'+
+							'<td class="hidden-480 ">'+obj.createTime+'</td>'+
+							'<td class=" ">'+obj.userId+'</td>'+
+							'<td class=" ">'+obj.status+'</td>'+
+							'<td class="hidden-480 ">'+obj.typeId+
+							'</td>'+
+							'<td class=" ">'+
+								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
+									'<a class="blue" href="#">'+
+										'<i class="icon-zoom-in bigger-130"></i>'+
+									'</a>'+
+									'<a class="green" href="#">'+
+										'<i class="icon-pencil bigger-130"></i>'+
+									'</a>'+
+									'<a class="red" href="#">'+
+										'<i class="icon-trash bigger-130"></i>'+
+									'</a>'+
+								'</div>'+
+							'</td>'+
+						'</tr>'
 					);
 				})
 			}

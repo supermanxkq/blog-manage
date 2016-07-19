@@ -120,6 +120,10 @@ public class ArticleController {
 		List<TypeCountVo> list = articleServiceImpl.queryTypeCount();
 		return list;
 	}
+	@RequestMapping("/toArticle")
+	public String toArticle(){
+		return "article/article";
+	}
 
 	@RequestMapping("/toIndex")
 	public String toIndex() {
