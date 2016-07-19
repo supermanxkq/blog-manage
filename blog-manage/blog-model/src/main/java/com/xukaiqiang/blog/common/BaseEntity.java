@@ -8,7 +8,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * 实体Bean基础�?
+ * 实体Bean基础类
  * @author wang.zx
  * @date 2014-11-26
  */

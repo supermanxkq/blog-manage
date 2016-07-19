@@ -20,23 +20,13 @@ public class Article extends BaseEntity {
 	private String	content;		
 	private Date	createTime;		
 	private Integer	userId;		
-	private Integer	status;		
+	private Integer	status;	
+	private Integer typeId;
 
 	// Constructor
 	public Article() {
 	}
 	
-	/**
-	 * full Constructor
-	 */
-	public Article(Integer id, String title, String content, Date createTime, Integer userId, Integer status) {
-		setId(id);
-		this.title = title;
-		this.content = content;
-		this.createTime = createTime;
-		this.userId = userId;
-		this.status = status;
-	}
 
 	// getter && setter
 	// 在setter方法最后加上"return this;"并把返回参数改为Article可以实现连缀设置属性
@@ -89,9 +79,15 @@ public class Article extends BaseEntity {
 		this.status = status;
 		return this;
 	}
-	
-	@Override
-	public String toString() {
-		return "Article [" + "id=" + getId() + ", title=" + title + ", content=" + content + ", createTime=" + createTime + ", userId=" + userId + ", status=" + status +  "]";
+
+
+	public Integer getTypeId() {
+		return typeId;
 	}
+
+
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
+	}
+	
 }

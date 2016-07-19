@@ -2,23 +2,23 @@ package com.xukaiqiang.blog.common;
 
 /**
  * 
- * 分页封装�?
+ * 分页封装类
  * @author wang.zx
  * @version 2014-11-10
  */
 public class BaseModel {
 
 	/**
-	 * 分页�?
+	 * 分页号
 	 */
 	private Integer page=0;
 	/**
-	 * 每页记录�?
+	 * 每页记录数
 	 */
 	private Integer pageSize=12;
 	
 	/**
-	 * 共有多少�?
+	 * 共有多少条
 	 */
 	private int totalRecords;
 	
@@ -31,7 +31,7 @@ public class BaseModel {
 
 
 	/**
-	 * 共有多少�?
+	 * 共有多少页
 	 * @return
 	 */
 	public int getTotalPages() {
@@ -39,7 +39,7 @@ public class BaseModel {
 	}
 	
 	/**
-	 * 获取�?���?��
+	 * 获取最后一页
 	 * @return
 	 */
 	public int getLastPageNo() {
@@ -47,7 +47,7 @@ public class BaseModel {
 	}
 	
 	/**
-	 * 获取上一�?
+	 * 获取上一页
 	 * @return
 	 */
 	public int getPreviousPageNo() {
@@ -58,7 +58,7 @@ public class BaseModel {
 	}
 
 	/**
-	 * 获取下一�?
+	 * 获取下一页
 	 * @return
 	 */
 	public int getNextPageNo() {
@@ -101,7 +101,7 @@ public class BaseModel {
 		this.pageSize = pageSize;
 	}
 	/**
-	 * 获取列表的开始位�?
+	 * 获取列表的开始位置
 	 * 
 	 * @return the start
 	 */
@@ -112,7 +112,7 @@ public class BaseModel {
 		return (page - 1) * pageSize;
 	}
 	/**
-	 * 获取列表的结束位�?
+	 * 获取列表的结束位置
 	 * 
 	 * @return the limit
 	 */

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xukaiqiang.blog.api.article.IArticleService;
 import com.xukaiqiang.blog.article.mapper.ArticleMapper;
 import com.xukaiqiang.blog.model.article.Article;
+import com.xukaiqiang.blog.model.article.TypeCountVo;
 
 /**
  * Service Implementation:Article
@@ -136,5 +137,7 @@ public class ArticleServiceImpl implements IArticleService {
 		return articleMapper.page(article);
 	};
 	
-	
+	public List<TypeCountVo> queryTypeCount(){
+		return articleMapper.queryTypeCount();
+	}
 }

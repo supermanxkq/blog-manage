@@ -3,6 +3,7 @@ package com.xukaiqiang.blog.api.article;
 import java.util.List;
 
 import com.xukaiqiang.blog.model.article.Article;
+import com.xukaiqiang.blog.model.article.TypeCountVo;
 /**
  * Service Interface:Article
  * @author xukaiqiang
@@ -111,4 +112,6 @@ public interface IArticleService  {
 	*/
 		
 	List<Article> queryArticleList(Article article);
+
+	List<TypeCountVo> queryTypeCount();
 }

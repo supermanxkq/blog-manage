@@ -36,7 +36,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>*.html</url-pattern>
   </servlet-mapping>
 
    <filter>
@@ -45,7 +45,7 @@
    </filter>
    <filter-mapping>
        <filter-name>siteMesh</filter-name>
-       <url-pattern>/</url-pattern>
+       <url-pattern>*.html</url-pattern>
    </filter-mapping>
   
   	<filter>
