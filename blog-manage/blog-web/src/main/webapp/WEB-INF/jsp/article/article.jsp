@@ -30,7 +30,7 @@
 	
 <div class="row">
 	<div class="col-md-4">
-<!-- 		<img alt="java1234开源博客系统" src="/static/images/logo.png"> -->
+		<img alt="java1234开源博客系统" src="<%=rootPath %>/images/logo.png">
 	</div>
 	<div class="col-md-8">
 		<iframe style="float: right;" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
@@ -89,7 +89,7 @@
 		<div class="col-md-9">
 <div class="data_list">
 		<div class="data_list_title">
-<!-- 		<img src="/static/images/list_icon.png"/> -->
+		<img src="<%=rootPath %>/images/list_icon.png"/>
 		最新博客</div>
 		<div class="datas articleList">
 			<ul>
@@ -109,19 +109,19 @@
 		<div class="col-md-3">
 			<div class="data_list">
 				<div class="data_list_title">
-<!-- 					<img src="/static/images/user_icon.png"/> -->
+ 					<img src="<%=rootPath %>/images/user_icon.png"/>
 					博主信息
 				</div>
 				<div class="user_image">
-<!-- 					<img src="/static/userImages/20160202095456.jpg"/> -->
+				<img src="<%=rootPath %>/images/timg.jpg"/> 
 				</div>
-				<div class="nickName">Java1234_小锋</div>
-				<div class="userSign">(知识改变命运，技术改变世界)</div>
+				<div class="nickName">徐半仙儿</div>
+				<div class="userSign">(知识就是力量)</div>
 			</div>
 			
 			<div class="data_list">
 				<div class="data_list_title">
-<!-- 					<img src="/static/images/byType_icon.png"/> -->
+					<img src="<%=rootPath %>/images/byType_icon.png"/> 
 					按日志类别
 				</div>
 				<div class="datas typeCount">
@@ -132,7 +132,7 @@
 			
 			<div class="data_list">
 				<div class="data_list_title">
-<!-- 					<img src="/static/images/byDate_icon.png"/> -->
+					<img src="<%=rootPath%>/images/byDate_icon.png"/> 
 					按日志日期
 				</div>
 				<div class="datas">
@@ -157,7 +157,7 @@
 			
 			<div class="data_list">
 				<div class="data_list_title">
-<!-- 					<img src="/static/images/link_icon.png"/> -->
+					<img src="<%=rootPath%>/images/link_icon.png"/> 
 					友情链接
 				</div>
 				<div class="datas">
@@ -180,8 +180,8 @@
 <div class="row">
 	<div class="col-md-12" >
 		<div align="center" style="padding-top: 120px" >
-			<span style="float: left;">Powered by <a  href="http://blog.java1234.com" target="_blank">Java1234</a> V3.0</span>
-			  Copyright © 2012-2016 Java知识分享网 版权所有
+			<span style="float: left;">Powered by <a  href="http://www.xukaiqiang.com" target="_blank">徐半仙儿</a> V3.0</span>
+			  Copyright © 2012-2016 徐半仙儿  版权所有
 		</div>
 	</div>
 </div>

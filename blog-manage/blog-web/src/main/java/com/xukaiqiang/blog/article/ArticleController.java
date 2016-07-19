@@ -121,8 +121,8 @@ public class ArticleController {
 		return list;
 	}
 
-	@RequestMapping("/toArticle")
-	public String toArticle() {
-		return "article/article";
+	@RequestMapping("/toIndex")
+	public String toIndex() {
+		return "index/index";
 	}
 }

@@ -17,7 +17,8 @@ $(function() {
 					data : user,
 					type : 'post',
 					success:function(jsonData){
-						window.location.href=rootPath+" ";
+						if(jsonData=='ok')
+						window.location.href=rootPath+"/article/toIndex";
 					}
 				})
 		});

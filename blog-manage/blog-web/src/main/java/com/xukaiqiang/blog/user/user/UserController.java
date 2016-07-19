@@ -62,7 +62,7 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(User user) {
 		User users = userServiceImpl.login(user);
-		return users.getUserName() + users.getPassWord();
+		return "ok";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
