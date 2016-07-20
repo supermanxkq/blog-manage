@@ -1,20 +1,25 @@
 $(function() {
 	var Article = {};
-
 	Article.init = function() {
 		var $this = this;
 		$this.queryList();
-		$this.queryTypeCount();
+		$this.event();
 	}
 	//查询列表集合
-	Article.queryList = function() {
+	Article.queryList = function(page) {
 		var article={};
+		article.page = page ? page : 1;
 		$.ajax({
 			url : rootPath+ "/article/queryArticleList",
 			data : article,
 			type : 'post',
 			success:function(jsonData){
-				$.each(jsonData, function(i, obj) {
+				// 清空table中的数据
+				$(".articleList").find("tr").remove();
+				 if (jsonData.data.length == 0) {
+                     $(".articleList").append( '<tr><td colspan="9">没有查找到数据。</td></tr>');
+                 }
+				$.each(jsonData.data, function(i, obj) {
 					$(".articleList").append(
 							'<tr class="odd">'+
 							'<td class="center  sorting_1">'+
@@ -27,9 +32,9 @@ $(function() {
 							'<a href="#">'+obj.title+'</a>'+
 							'</td>'+
 							'<td class="hidden-480 ">'+obj.createTime+'</td>'+
-							'<td class=" ">'+obj.userId+'</td>'+
-							'<td class=" ">'+obj.status+'</td>'+
-							'<td class="hidden-480 ">'+obj.typeId+
+							'<td class=" ">'+obj.userName+'</td>'+
+							'<td class=" ">'+(obj.status==1?'发表':'未发表')+'</td>'+
+							'<td class="hidden-480 ">'+obj.typeName+
 							'</td>'+
 							'<td class=" ">'+
 								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
@@ -39,31 +44,50 @@ $(function() {
 									'<a class="green" href="#">'+
 										'<i class="icon-pencil bigger-130"></i>'+
 									'</a>'+
-									'<a class="red" href="#">'+
+									'<a class="red delete" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
 										'<i class="icon-trash bigger-130"></i>'+
 									'</a>'+
 								'</div>'+
 							'</td>'+
 						'</tr>'
 					);
-				})
+				});
+				   if (jsonData.rowCount >jsonData.pageSize) {
+                       $(".pagination").pagination(jsonData.rowCount,
+                           {
+                               next_text: "下一页",
+                               prev_text: "上一页",
+                               current_page: jsonData.pageNo - 1,
+                               link_to: "javascript:void(0)",
+                               num_display_entries: 8,
+                               items_per_page: jsonData.pageSize,
+                               num_edge_entries: 1,
+                               callback: function (page, jq) {
+                                   var pageNo = page + 1;
+                                   Article.queryList(pageNo);
+                               }
+                           });
+                   } else {
+                       $(".pagination").html('');
+                   }
+				   if (this.page <= 1) {
+						return 1;
+					}
 			}
 		});
 	}
-	//查询分类下的数量
-	Article.queryTypeCount=function(){
-		$.ajax({
-			url : rootPath+ "/article/queryTypeCount",
-			data : "",
-			type : 'post',
-			success:function(jsonData){
-				$.each(jsonData, function(i, obj) {
-					$(".typeCount ul").append(
-							'<li><span><a href="/index.html?typeId=1">'+obj.name+'('+obj.count+')</a></span></li>'
-					);
-				});
-			}
+	//事件
+	Article.event=function(){
+		//显示提示信息
+		$('#gritter-center').on(ace.click_event, function(){
+			$.gritter.add({
+				title: 'This is a centered notification',
+				text: 'Just add a "gritter-center" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
+				class_name: ''
+			});
+			return false;
 		});
+		
 	}
 	// 声明
 	window.Article = Article;
@@ -71,3 +95,24 @@ $(function() {
 		Article.init();
 	});
 })
+
+
+
+//删除文章
+function deleteArticle(id, obj) {
+			var url = rootPath + "/article/del/" + id;
+			$.ajax({
+				url : url,
+				data : "",
+				type : "get",
+				 beforeSend:function(XMLHttpRequest){
+			          },
+				success : function() {
+					$(obj).parent().parent().parent().remove();
+				},
+				 error : function(){
+		 		  },
+				  complete:function(XMLHttpRequest,textStatus){
+			      }
+			});
+}

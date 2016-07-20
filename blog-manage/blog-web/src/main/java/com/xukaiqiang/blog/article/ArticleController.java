@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xukaiqiang.blog.api.article.IArticleService;
+import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
 import com.xukaiqiang.blog.model.article.TypeCountVo;
-import com.xukaiqiang.blog.model.articleType.ArticleType;
+import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 
 /**
  * Controller of Article
@@ -29,7 +31,6 @@ import com.xukaiqiang.blog.model.articleType.ArticleType;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
-
 	@Autowired
 	private IArticleService articleServiceImpl;
 
@@ -61,10 +62,11 @@ public class ArticleController {
 		return "redirect:/article";
 	}
 
+	@ResponseBody
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
 	public String del(Model model, @PathVariable Integer id) {
 		articleServiceImpl.deleteArticleById(id);
-		return "redirect:/article";
+		return "1";
 	}
 
 	@ResponseBody
@@ -97,11 +99,12 @@ public class ArticleController {
 	 */
 	@ResponseBody
 	@RequestMapping("/queryArticleList")
-	public List<Article> queryArticleList(Model model, Article article) {
-		List<Article> articleList = articleServiceImpl.queryArticleList(article);
-		return articleList;
+	public PageFinder<QueryArticleListVo> queryArticleList(Model model, QueryArticleListVo search) {
+		PageFinder<QueryArticleListVo> pageFinder = articleServiceImpl
+				.queryArticleList(search);
+		return pageFinder;
 	}
-	
+
 	/**
 	 * Class Name: ArticleController.java
 	 * 
@@ -120,8 +123,9 @@ public class ArticleController {
 		List<TypeCountVo> list = articleServiceImpl.queryTypeCount();
 		return list;
 	}
+
 	@RequestMapping("/toArticle")
-	public String toArticle(){
+	public String toArticle() {
 		return "article/article";
 	}
 

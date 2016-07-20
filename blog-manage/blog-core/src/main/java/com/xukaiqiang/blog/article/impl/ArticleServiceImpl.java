@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.xukaiqiang.blog.api.article.IArticleService;
 import com.xukaiqiang.blog.article.mapper.ArticleMapper;
+import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
 import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 
 /**
  * Service Implementation:Article
@@ -133,8 +135,11 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public List<Article> queryArticleList(Article article) {
-		return articleMapper.page(article);
+	public PageFinder<QueryArticleListVo> queryArticleList(QueryArticleListVo search) {
+		List<QueryArticleListVo> data = articleMapper.queryArticleList(search);
+		int rowCount=articleMapper.pageCountArticle(search);
+		PageFinder<QueryArticleListVo> pageFinder = new PageFinder<QueryArticleListVo>(search.getPage(), search.getPageSize(), rowCount, data);
+		return pageFinder;
 	};
 	
 	public List<TypeCountVo> queryTypeCount(){

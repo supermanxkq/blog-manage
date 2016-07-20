@@ -2,8 +2,10 @@ package com.xukaiqiang.blog.api.article;
 
 import java.util.List;
 
+import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
 import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 /**
  * Service Interface:Article
  * @author xukaiqiang
@@ -111,7 +113,7 @@ public interface IArticleService  {
 	 * @return
 	*/
 		
-	List<Article> queryArticleList(Article article);
+	PageFinder<QueryArticleListVo> queryArticleList(QueryArticleListVo search);
 
 	List<TypeCountVo> queryTypeCount();
 }

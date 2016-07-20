@@ -10,6 +10,15 @@
 		<result property="status" column="status" />
 		<result property="typeId" column="typeId" />
 	</resultMap>
+	<resultMap type="com.xukaiqiang.blog.vo.article.QueryArticleListVo" id="articleVoResultMap">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="createTime" column="createTime" />
+		<result property="userName" column="userName" />
+		<result property="status" column="status" />
+		<result property="typeName" column="typeName" />
+	</resultMap>
 	
 	<sql id="table_columns">
 		id,
@@ -56,7 +65,7 @@
 	
 	<!--根据主键删除 -->
 	<delete id="deleteById">
-		delete from tbl_users
+		delete from article
 		where id = #{id}
 	</delete>
 	
@@ -120,5 +129,16 @@
 	<!-- 其他自定义SQL -->
 	<select id="queryTypeCount" resultType="com.xukaiqiang.blog.model.article.TypeCountVo">
 		SELECT at.name name,count(a.typeId) count from article a,article_type at where a.typeId=at.id GROUP BY a.typeId,at.name
+	</select>
+	
+	<select id="queryArticleList" resultMap="articleVoResultMap" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
+			SELECT  a.id id,a.title title,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
+			`user` u ON  a.userId=u.id
+			LEFT JOIN article_type at on a.typeId=`at`.id
+			ORDER BY a.createTime DESC
+			limit #{firstIndex},#{pageSize}
+	</select>
+	<select id="pageCountArticle" resultType="int" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
+		select count(id) from article
 	</select>
 </mapper>
