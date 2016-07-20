@@ -2,6 +2,7 @@ package com.xukaiqiang.blog.articleType;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -72,4 +73,10 @@ public class ArticleTypeController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
+	@ResponseBody
+	@RequestMapping("/queryAll")
+	public List<ArticleType> queryAll(){
+		return articleTypeServiceImpl.queryAll();
+	}
+	
 }

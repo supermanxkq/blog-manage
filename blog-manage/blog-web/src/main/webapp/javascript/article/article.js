@@ -1,9 +1,28 @@
 $(function() {
+	Date.prototype.Format = function(fmt) { // author: meizz
+		  var o = {   
+		    "M+" : this.getMonth()+1,                 // 月份
+		    "d+" : this.getDate(),                    // 日
+		    "h+" : this.getHours(),                   // 小时
+		    "m+" : this.getMinutes(),                 // 分
+		    "s+" : this.getSeconds(),                 // 秒
+		    "q+" : Math.floor((this.getMonth()+3)/3), // 季度
+		    "S"  : this.getMilliseconds()             // 毫秒
+		  };   
+		  if(/(y+)/.test(fmt))   
+		    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+		  for(var k in o)   
+		    if(new RegExp("("+ k +")").test(fmt))   
+		  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+		  return fmt;   
+		}
+	
 	var Article = {};
 	Article.init = function() {
 		var $this = this;
 		$this.queryList();
 		$this.event();
+		
 	}
 	//查询列表集合
 	Article.queryList = function(page) {
@@ -29,9 +48,9 @@ $(function() {
 								'</label>'+
 							'</td>'+
 							'<td class=" ">'+
-							'<a href="#">'+obj.title+'</a>'+
+							'<a href="#">'+obj.id+'~'+obj.title+'</a>'+
 							'</td>'+
-							'<td class="hidden-480 ">'+obj.createTime+'</td>'+
+							'<td class="hidden-480 ">'+new Date(obj.createTime).Format("yyyy-MM-dd hh:mm:ss")+'</td>'+
 							'<td class=" ">'+obj.userName+'</td>'+
 							'<td class=" ">'+(obj.status==1?'发表':'未发表')+'</td>'+
 							'<td class="hidden-480 ">'+obj.typeName+
@@ -87,6 +106,11 @@ $(function() {
 			});
 			return false;
 		});
+		//写文章
+		$('.writeArticle').on('click', function(){
+			window.location.href=rootPath+"/article/toAdd";
+		});
+		
 		
 	}
 	// 声明

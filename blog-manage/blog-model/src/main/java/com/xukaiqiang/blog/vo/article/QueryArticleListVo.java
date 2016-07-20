@@ -1,8 +1,6 @@
 package com.xukaiqiang.blog.vo.article;
 
 import java.util.Date;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import com.xukaiqiang.blog.util.ShortDateSerializer;
 
 import com.xukaiqiang.blog.common.BaseEntity;
 

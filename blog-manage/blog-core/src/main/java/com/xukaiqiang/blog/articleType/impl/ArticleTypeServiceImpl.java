@@ -129,5 +129,21 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
 	@Override
 	public List<ArticleType> findArticleTypeByPage(ArticleType search){
 		return articleTypeMapper.page(search);
+	}
+
+	
+	/* (non-Javadoc)
+	 * @Description:查询所有分类
+	 * @author Administrator
+	 * @date 2016年7月21日 上午12:26:02
+	 * @modifier
+	 * @modify-date 2016年7月21日 上午12:26:02
+	 * @version 1.0
+	 * @return
+	*/
+		
+	@Override
+	public List<ArticleType> queryAll() {
+		return articleTypeMapper.queryAll();
 	};
 }

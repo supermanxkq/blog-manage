@@ -96,4 +96,18 @@ public interface IArticleTypeService  {
 	* @user by xukaiqiang
 	 */
 	List<ArticleType> findArticleTypeByPage(ArticleType search);
+
+	
+	/**
+	 * Class Name: IArticleTypeService.java
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author Administrator
+	 * @date 2016年7月21日 上午12:25:40
+	 * @modifier
+	 * @modify-date 2016年7月21日 上午12:25:40
+	 * @version 1.0
+	 * @return
+	*/
+		
+	List<ArticleType> queryAll();
 }

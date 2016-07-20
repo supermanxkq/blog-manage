@@ -140,6 +140,41 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.0</version>
 		</dependency>
+		
+		<!-- 将jar放到/webapp/WEB-INF/lib目录下 -->
+<!-- 		 <dependency> -->
+<!-- 		  <groupId>com.baidu.ueditor</groupId> -->
+<!-- 		  <artifactId>ueditor</artifactId> -->
+<!-- 		  <version>1.1.1</version> -->
+<!-- 		  <scope>system</scope> -->
+<!-- 		  <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.1.jar</systemPath> -->
+<!-- 		 </dependency> -->
+		 <!-- 上传文件的支持 -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.3.1</version>
+</dependency>
+ 
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.4</version>
+</dependency>
+ 
+<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.10</version>
+</dependency>
+ 
+<!-- org.json -->
+<!--JSON is a light-weight, language independent, data interchange format. See http://www.JSON.org/-->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20160212</version>
+</dependency>
 	</dependencies>
 
 	<build>

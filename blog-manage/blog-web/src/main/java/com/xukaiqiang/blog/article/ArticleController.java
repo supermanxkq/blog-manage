@@ -47,12 +47,8 @@ public class ArticleController {
 	@ResponseBody
 	@RequestMapping(value = "/add")
 	public String add(Article article) {
-		Article article1 = new Article();
-		article1.setContent("xukaiqiangcontent");
-		article1.setCreateTime(new Date());
-		article1.setStatus(1);
-		article1.setUserId(1);
-		articleServiceImpl.insert(article1);
+		article.setCreateTime(new Date());
+		articleServiceImpl.insert(article);
 		return "ok";
 	}
 
@@ -123,12 +119,37 @@ public class ArticleController {
 		List<TypeCountVo> list = articleServiceImpl.queryTypeCount();
 		return list;
 	}
-
+	/**
+	 * 
+	 * Class Name: ArticleController.java
+	 * @Description: 文章列表页面
+	 * @author Administrator
+	 * @date 2016年7月20日 下午9:21:26
+	 * @modifier
+	 * @modify-date 2016年7月20日 下午9:21:26
+	 * @version 1.0
+	 * @return
+	 */
 	@RequestMapping("/toArticle")
 	public String toArticle() {
 		return "article/article";
 	}
-
+	/**
+	 * Class Name: ArticleController.java
+	 * @Description: 添加页面
+	 * @author Administrator
+	 * @date 2016年7月20日 下午9:22:12
+	 * @modifier
+	 * @modify-date 2016年7月20日 下午9:22:12
+	 * @version 1.0
+	 * @return
+	 */
+	@RequestMapping("/toAdd")
+	public String toAdd() {
+		return "article/add";
+	}
+	
+	
 	@RequestMapping("/toIndex")
 	public String toIndex() {
 		return "index/index";
