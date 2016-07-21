@@ -13,7 +13,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
 import com.xukaiqiang.blog.common.ViewResult;
-import com.xukaiqiang.blog.model.user.user.User;
+import com.xukaiqiang.blog.model.user.User;
 
 import net.sf.json.JSONObject;
 

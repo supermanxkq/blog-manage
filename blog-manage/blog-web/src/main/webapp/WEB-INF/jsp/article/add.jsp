@@ -12,6 +12,7 @@
 		<meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
 		<meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="<%=rootPath%>/javascript/jquery/jquery.min-1.11.3.js"></script>
 		<!-- basic styles -->
 		<link href="<%=rootPath%>/stylesheets/assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/font-awesome.min.css" />
@@ -21,7 +22,7 @@
 		<![endif]-->
 
 		<!-- page specific plugin styles -->
-
+		
 		<!-- fonts -->
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
@@ -96,7 +97,7 @@
 							<li>
 								<a href="#">博客管理</a>
 							</li>
-							<li class="active">写博客</li>
+							<li class="active">文章</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -112,11 +113,7 @@
 					<div class="page-content">
 						<div class="page-header">
 							<h1>
-								Form Elements
-								<small>
-									<i class="icon-double-angle-right"></i>
-									Common form elements and layouts
-								</small>
+								写文章
 							</h1>
 						</div><!-- /.page-header -->
 
@@ -128,7 +125,7 @@
 										<label class="col-sm-2 control-label no-padding-right articleId" for="form-field-1"  data-id="${article.id}">文章标题</label>
 
 										<div class="col-sm-10">
-											<input type="text" id="form-field-1" placeholder="Username" value="${article.title}" class="col-xs-10 col-sm-5 title">
+											<input type="text" id="form-field-1" placeholder="文章标题" value="${article.title}" class="col-xs-10 col-sm-5 title">
 										</div>
 									</div>
 
@@ -169,7 +166,12 @@
 											<textarea class="form-control limited" id="form-field-9" maxlength="50"></textarea>
 										</div>
 									</div>
-
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-input-readonly">文章标签 </label>
+										<div class="col-sm-10">
+												<input type="text" id="form-field-1" placeholder="文章标签" value="${article.tags}" class="col-xs-10 col-sm-5 tags">
+										</div>
+									</div>
 									<div class="space-4"></div>
 
 									<div class="clearfix form-actions">
@@ -273,7 +275,6 @@
 		<script src="<%=rootPath%>/stylesheets/assets/js/typeahead-bs2.min.js"></script>
 
 		<!-- page specific plugin scripts -->
-
 		<!-- ace scripts -->
 
 		<script src="<%=rootPath%>/stylesheets/assets/js/ace-elements.min.js"></script>

@@ -46,13 +46,9 @@ $(function() {
 					$(".articleList").append(
 							'<tr class="odd">'+
 							'<td class="center  sorting_1">'+
-								'<label>'+
-									'<input type="checkbox" class="ace">'+
-									'<span class="lbl"></span>'+
-								'</label>'+
+								(i+1)+
 							'</td>'+
-							'<td class=" ">'+
-							'<a href="#">'+obj.id+'~'+obj.title+'</a>'+
+							'<td class=" ">'+obj.title+
 							'</td>'+
 							'<td class="hidden-480 ">'+new Date(obj.createTime).Format("yyyy-MM-dd hh:mm:ss")+'</td>'+
 							'<td class=" ">'+obj.userName+'</td>'+
@@ -63,11 +59,14 @@ $(function() {
 							'</td>'+
 							'<td class=" ">'+
 								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
-									'<a class="green edit" href="javascript:;" onclick="Article.findArticle('+obj.id+')">'+
+									'<a class="green edit" title="修改" href="javascript:;" onclick="Article.findArticle('+obj.id+')">'+
 										'<i class="icon-pencil bigger-130"></i>'+
 									'</a>'+
-									'<a class="red delete" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
+									'<a class="red delete" title="删除" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
 										'<i class="icon-trash bigger-130"></i>'+
+									'</a>'+
+									'<a class="red delete" title="置顶" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
+									'<i class="icon-heart bigger-130"></i>'+
 									'</a>'+
 								'</div>'+
 							'</td>'+
@@ -100,15 +99,6 @@ $(function() {
 	}
 	//事件
 	Article.event=function(){
-		//显示提示信息
-		$('#gritter-center').on(ace.click_event, function(){
-			$.gritter.add({
-				title: 'This is a centered notification',
-				text: 'Just add a "gritter-center" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
-				class_name: ''
-			});
-			return false;
-		});
 		//写文章
 		$('.writeArticle').on('click', function(){
 			window.location.href=rootPath+"/article/toAdd";

@@ -116,8 +116,9 @@
 			<value>
 				com.xukaiqiang.blog.article.mapper,
 				com.xukaiqiang.blog.articleType.mapper,
-				com.xukaiqiang.blog.user.user.mapper,
-				com.xukaiqiang.blog.user.userDetail.mapper
+				com.xukaiqiang.blog.user.mapper,
+				com.xukaiqiang.blog.userDetail.mapper,
+				com.xukaiqiang.blog.tags.mapper
 			</value>
 		</property>
 	</bean>

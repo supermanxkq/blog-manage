@@ -23,8 +23,27 @@ public class Article extends BaseEntity {
 	private Integer	status;	/*状态*/
 	private Integer typeId; /*分类*/
 	private Integer type;  /*文章类型  1原创  2 转载*/
+	private String tags;/*标签*/
 	
 	
+	
+	
+
+	/**
+	 * @return the tags
+	 */
+	public String getTags() {
+		return tags;
+	}
+
+
+	/**
+	 * @param tags the tags to set
+	 */
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
 
 	/**
 	 * @return the type

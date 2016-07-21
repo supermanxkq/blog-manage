@@ -15,11 +15,12 @@
 
 	<mappers>
 		<!-- user -->
-		<mapper resource="com/xukaiqiang/user/user/UserMapper.xml" />
-		<mapper resource="com/xukaiqiang/user/userDetail/UserDetailMapper.xml" />
+		<mapper resource="com/xukaiqiang/user/UserMapper.xml" />
+		<mapper resource="com/xukaiqiang/userDetail/UserDetailMapper.xml" />
 
 		<!-- 文章相关 -->
 		<mapper resource="com/xukaiqiang/article/ArticleMapper.xml" />
 		<mapper resource="com/xukaiqiang/articleType/ArticleTypeMapper.xml" />
+		<mapper resource="com/xukaiqiang/tags/TagsMapper.xml" />
 	</mappers>
 </configuration>

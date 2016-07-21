@@ -1,5 +1,6 @@
 package com.xukaiqiang.blog.article.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,10 @@ public class ArticleServiceImpl implements IArticleService {
 	 */
 	@Override
 	public void insert(Article entity){
+		//插入文章
+		entity.setCreateTime(new Date());
 		articleMapper.insert(entity);
+		
 	};
 	
 	/**

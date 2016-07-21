@@ -48,23 +48,23 @@
 							<span class="menu-text"> 文字排版 </span>
 					</a></li>
 
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-desktop"></i> <span class="menu-text"> UI 组件 </span>
+					<li><a href="#" class="dropdown-toggle active open"> <i
+							class="icon-edit"></i> <span class="menu-text">博客管理 </span>
 
 							<b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							<li><a href="elements.html"> <i
-									class="icon-double-angle-right"></i> 组件
-							</a></li>
+									<li class="active"><a href="<%=rootPath%>/article/toArticle"> <i
+								class="icon-double-angle-right"></i> <span class="menu-text">文章 </span>
+						</a></li>
 
 							<li><a href="buttons.html"> <i
-									class="icon-double-angle-right"></i> 按钮 &amp; 图表
+									class="icon-double-angle-right"></i> 分类
 							</a></li>
 
 							<li><a href="treeview.html"> <i
-									class="icon-double-angle-right"></i> 树菜单
+									class="icon-double-angle-right"></i> 评论
 							</a></li>
 
 							<li><a href="jquery-ui.html"> <i
