@@ -16,12 +16,31 @@ import com.xukaiqiang.blog.common.BaseEntity;
 public class Article extends BaseEntity {
 	
 	
-	private String	title;		
-	private String	content;		
-	private Date	createTime;		
-	private Integer	userId;		
-	private Integer	status;	
-	private Integer typeId;
+	private String	title;		/*标题*/
+	private String	content;	/*内容*/	
+	private Date	createTime;	/*创建时间*/	
+	private Integer	userId;	/*作者*/	
+	private Integer	status;	/*状态*/
+	private Integer typeId; /*分类*/
+	private Integer type;  /*文章类型  1原创  2 转载*/
+	
+	
+
+	/**
+	 * @return the type
+	 */
+	public Integer getType() {
+		return type;
+	}
+
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
 
 	// Constructor
 	public Article() {

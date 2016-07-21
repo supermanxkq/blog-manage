@@ -55,6 +55,8 @@ $(function() {
 							'<td class=" ">'+(obj.status==1?'发表':'未发表')+'</td>'+
 							'<td class="hidden-480 ">'+obj.typeName+
 							'</td>'+
+							'<td class="hidden-480 ">'+(obj.type==1?'原创':'转载')+
+							'</td>'+
 							'<td class=" ">'+
 								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
 									'<a class="blue" href="#">'+
@@ -72,7 +74,7 @@ $(function() {
 					);
 				});
 				   if (jsonData.rowCount >jsonData.pageSize) {
-                       $(".pagination").pagination(jsonData.rowCount,
+                       $("#pagination").pagination(jsonData.rowCount,
                            {
                                next_text: "下一页",
                                prev_text: "上一页",

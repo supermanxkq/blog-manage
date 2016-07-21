@@ -9,6 +9,7 @@
 		<result property="userId" column="userId" />
 		<result property="status" column="status" />
 		<result property="typeId" column="typeId" />
+		<result property="type" column="type" />
 	</resultMap>
 	<resultMap type="com.xukaiqiang.blog.vo.article.QueryArticleListVo" id="articleVoResultMap">
 		<result property="id" column="id" />
@@ -18,6 +19,7 @@
 		<result property="userName" column="userName" />
 		<result property="status" column="status" />
 		<result property="typeName" column="typeName" />
+		<result property="type" column="type" />
 	</resultMap>
 	
 	<sql id="table_columns">
@@ -27,7 +29,8 @@
 		createTime,
 		userId,
 		status,
-		typeId
+		typeId,
+		type
     </sql>
 	<sql id="entity_properties">
 		#{id},
@@ -36,7 +39,8 @@
 		#{createTime},
 		#{userId},
 		#{status},
-		#{typeId}
+		#{typeId},
+		#{type}
 	</sql>
 	<sql id="batch_entity_properties">
 		#{item.id},
@@ -45,7 +49,8 @@
 		#{item.createTime},
 		#{item.userId},
 		#{item.status},
-		#{item.typeId}
+		#{item.typeId},
+		#{item.type}
 	</sql>
 	
 	<!-- 适用于主键自增类型 -->
@@ -87,6 +92,7 @@
 			<if test="userId != null and userId != ''">userId = #{userId},</if>
 			<if test="status != null and status != ''">status = #{status},</if>
 			<if test="typeId != null and typeId != ''">typeId = #{typeId},</if>
+			<if test="type != null and type != ''">type = #{type},</if>
 		</trim>
 		<where>id = #{id}</where>
 	</update>
@@ -111,6 +117,7 @@
 			<if test="userId != null and userId != ''">and userId = #{userId}</if>
 			<if test="status != null and status != ''">and status = #{status}</if>
 			<if test="typeId != null and typeId != ''">and typeId = #{typeId}</if>
+			<if test="type != null and type != ''">and type = #{type}</if>
 		</trim>
 	</sql>
 	
@@ -132,7 +139,7 @@
 	</select>
 	
 	<select id="queryArticleList" resultMap="articleVoResultMap" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
-			SELECT  a.id id,a.title title,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
+			SELECT  a.id id,a.title title,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
 			`user` u ON  a.userId=u.id
 			LEFT JOIN article_type at on a.typeId=`at`.id
 			ORDER BY a.createTime DESC

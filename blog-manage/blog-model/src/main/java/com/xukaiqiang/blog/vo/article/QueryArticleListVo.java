@@ -19,6 +19,23 @@ public class QueryArticleListVo extends BaseEntity {
 	private String userName;
 	private Integer status;
 	private String typeName;
+	private Integer type;
+	
+	
+
+	/**
+	 * @return the type
+	 */
+	public Integer getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
 	public String getTitle() {
 		return title;

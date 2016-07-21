@@ -37,6 +37,7 @@
 
 <!-- ace styles -->
 <link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace.min.css" />
+<link rel="stylesheet" href="<%=rootPath%>/stylesheets/fatstyle.css" />
 	
 <link rel="stylesheet"
 	href="<%=rootPath%>/stylesheets/assets/css/ace-rtl.min.css" />
@@ -164,13 +165,18 @@
 															aria-label="
 															Update
 														: activate to sort column ascending"
-															style="width: 191px;"><i
+															style="width: 121px;"><i
 															class="icon-time bigger-110 hidden-480"></i> 状态</th>
 														<th class="hidden-480 sorting" role="columnheader"
 															tabindex="0" aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
-															style="width: 171px;">分类</th>
+															style="width: 121px;">分类</th>
+															<th class="hidden-480 sorting" role="columnheader"
+															tabindex="0" aria-controls="sample-table-2" rowspan="1"
+															colspan="1"
+															aria-label="Status: activate to sort column ascending"
+															style="width: 121px;">类型</th>
 														<th class="sorting_disabled" role="columnheader"
 															rowspan="1" colspan="1" aria-label=""
 															style="width: 168px;">操作</th>
@@ -181,10 +187,9 @@
 												</tbody>
 											</table>
 											<div class="row">
-											<button class="btn" id="gritter-center">Center</button>
 												<div class="col-md-12">
 													<div class="dataTables_paginate paging_bootstrap" style="text-align:center;">
-														<ul class="pagination"></ul>
+														<ul class="pages" id="pagination"></ul>
 													</div>
 												</div>
 											</div>
