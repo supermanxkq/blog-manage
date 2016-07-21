@@ -12,9 +12,10 @@ $(function(){
 			data:"",
 			type:'post',
 			success:function(jsonData){
+				var typeId=$(".articleType").data("typeid");
 				$.each(jsonData,function(i,obj){
 					$(".articleType").append('<div class="radio">'+
-							'<label><input name="form-field-radio" type="radio" class="ace" value="'+obj.id+'">'+
+							'<label><input name="form-field-radio" type="radio" class="ace" value="'+obj.id+'"'+(typeId==obj.id?'checked="checked"':'')+'>'+
 							'<span class="lbl"> '+obj.name+'</span>'+
 						'</label>'+
 					'</div>');
@@ -37,21 +38,34 @@ $(function(){
 				$(".contentHidden").val(UE.getEditor('editor').getContent());
 			}
 			
+			var id=$(".articleId").data("id");
 			var article={};
+			article.id=id;
 			article.title=$(".title").val();
 			article.typeId=$('.articleType input[name="form-field-radio"]:checked ').val();
 			article.content=$(".contentHidden").val();
 			article.status=0;
 			article.userId=1;
-//			article.summary=;
-			$.ajax({
-				url:rootPath+"/article/add",
-				data:article,
-				type:'post',
-				success:function(jsonData){
-					window.location.href=rootPath+"/article/toArticle";
-				}
-			});
+			article.type=$(".type").val();
+			if(id==""){
+				$.ajax({
+					url:rootPath+"/article/add",
+					data:article,
+					type:'post',
+					success:function(jsonData){
+						window.location.href=rootPath+"/article/toArticle";
+					}
+				});
+			}else{
+				$.ajax({
+					url:rootPath+"/article/update",
+					data:article,
+					type:'post',
+					success:function(jsonData){
+						window.location.href=rootPath+"/article/toArticle";
+					}
+				});
+			}
 		});
 	}
 	// 声明

@@ -37,6 +37,7 @@
 
 <!-- ace styles -->
 <link rel="stylesheet" href="<%=rootPath%>/stylesheets/assets/css/ace.min.css" />
+
 <link rel="stylesheet" href="<%=rootPath%>/stylesheets/fatstyle.css" />
 	
 <link rel="stylesheet"
@@ -147,39 +148,41 @@
 															style="width: 57px;"><label> <input
 																type="checkbox" class="ace"> <span class="lbl"></span>
 														</label></th>
-														<th class="sorting" role="columnheader" tabindex="0"
+														<th  role="columnheader" tabindex="0"
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="Domain: activate to sort column ascending"
 															style="width: 162px;">标题</th>
-														<th class="sorting" role="columnheader" tabindex="0"
+														<th  role="columnheader" tabindex="0"
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="Price: activate to sort column ascending"
-															style="width: 116px;">创建时间</th>
-														<th class="hidden-480 sorting" role="columnheader"
+															style="width: 116px;"><i
+															class="icon-time bigger-110 hidden-480"></i>创建时间</th>
+														<th class="hidden-480 " role="columnheader"
 															tabindex="0" aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Clicks: activate to sort column ascending"
-															style="width: 127px;">作者</th>
-														<th class="sorting" role="columnheader" tabindex="0"
+															style="width: 127px;"><i
+															class="icon-user bigger-110 hidden-480"></i>作者</th>
+														<th  role="columnheader" tabindex="0"
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="
 															Update
 														: activate to sort column ascending"
-															style="width: 121px;"><i
-															class="icon-time bigger-110 hidden-480"></i> 状态</th>
-														<th class="hidden-480 sorting" role="columnheader"
+															style="width: 121px;">状态</th>
+														<th class="hidden-480 " role="columnheader"
 															tabindex="0" aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
 															style="width: 121px;">分类</th>
-															<th class="hidden-480 sorting" role="columnheader"
+															<th class="hidden-480 " role="columnheader"
 															tabindex="0" aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
 															style="width: 121px;">类型</th>
 														<th class="sorting_disabled" role="columnheader"
 															rowspan="1" colspan="1" aria-label=""
-															style="width: 168px;">操作</th>
+															style="width: 168px;"><i
+															class="icon-cogs bigger-110 hidden-480"></i>操作</th>
 													</tr>
 												</thead>
 												<tbody role="alert" aria-live="polite" aria-relevant="all"
@@ -187,6 +190,7 @@
 												</tbody>
 											</table>
 											<div class="row">
+											<button class="btn btn-primary" id="gritter-center">Center</button>
 												<div class="col-md-12">
 													<div class="dataTables_paginate paging_bootstrap" style="text-align:center;">
 														<ul class="pages" id="pagination"></ul>

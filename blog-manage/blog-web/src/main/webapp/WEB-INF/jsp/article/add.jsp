@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String rootPath = request.getContextPath();
-%>
+<%@include file="/decorators/import.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	<script type="text/javascript">
-		var rootPath='<%=rootPath%>';
+		<script type="text/javascript">
+			var rootPath='<%=rootPath%>';
 		</script>
 		<meta charset="utf-8" />
 		<title>写博客</title>
@@ -127,10 +125,10 @@
 								<!-- PAGE CONTENT BEGINS -->
 								<form class="form-horizontal" role="form">
 									<div class="form-group form-inline">
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1">文章标题</label>
+										<label class="col-sm-2 control-label no-padding-right articleId" for="form-field-1"  data-id="${article.id}">文章标题</label>
 
 										<div class="col-sm-10">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5 title">
+											<input type="text" id="form-field-1" placeholder="Username" value="${article.title}" class="col-xs-10 col-sm-5 title">
 										</div>
 									</div>
 
@@ -139,7 +137,7 @@
 									<div class="form-group form-inline">
 										<label class="col-sm-2 control-label no-padding-right" for="form-field-2"> 文章分类 </label>
 
-										<div class="col-sm-10 articleType">
+										<div class="col-sm-10 articleType" data-typeid="${article.typeId}">
 
 										</div>
 									</div>
@@ -150,9 +148,10 @@
 										<label class="col-sm-2 control-label no-padding-right" for="form-input-readonly">文章类型 </label>
 
 										<div class="col-sm-10">
-											<select  id="form-field-select-1">
-												<option value="1">原创</option>
-												<option value="0">转载</option>
+											<select  id="form-field-select-1" class="type">
+											
+												<option value="1" <c:if test="${article.type==1}">selected="selected"</c:if>>原创</option>
+												<option value="0" <c:if test="${article.type==0}">selected="selected"</c:if>>转载</option>
 											</select>
 										</div>
 									</div>
@@ -160,7 +159,7 @@
 										<label class="col-sm-2 control-label no-padding-right" for="form-input-readonly">文章内容 </label>
 										<div class="col-sm-10">
 											<!-- 加载编辑器的容器 --> 
-											<script id="editor" type="text/plain" style="width:800px;height:500px;"></script>
+											<script id="editor" type="text/plain" style="width:800px;height:500px;">${article.content}</script>
 											<input type="hidden" class="contentHidden"/>
 										</div>
 									</div>
@@ -254,17 +253,6 @@
 
 		<!-- basic scripts -->
 
-		<!--[if !IE]> -->
-
-<!-- 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-<![endif]-->
-
-		<!--[if !IE]> -->
 
 		<script type="text/javascript">
 			window.jQuery || document.write("<script src='<%=rootPath%>/stylesheets/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");

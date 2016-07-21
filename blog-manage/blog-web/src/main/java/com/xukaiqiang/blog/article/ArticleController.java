@@ -51,11 +51,17 @@ public class ArticleController {
 		articleServiceImpl.insert(article);
 		return "ok";
 	}
-
+	@ResponseBody
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Article Article) {
-		articleServiceImpl.update(Article);
-		return "redirect:/article";
+	public String update(Article article) {
+		Article article2=articleServiceImpl.findArticleById(article.getId());
+		article2.setContent(article.getContent());
+		article2.setTitle(article.getTitle());
+		article2.setType(article.getType());
+		article2.setTypeId(article.getTypeId());
+		article2.setUserId(article.getUserId());
+		articleServiceImpl.update(article2);
+		return "ok";
 	}
 
 	@ResponseBody
@@ -149,6 +155,24 @@ public class ArticleController {
 		return "article/add";
 	}
 	
+	/**
+	 * 
+	 * Class Name: ArticleController.java
+	 * @Description: 查找文章
+	 * @author Administrator
+	 * @date 2016年7月21日 下午5:55:55
+	 * @modifier
+	 * @modify-date 2016年7月21日 下午5:55:55
+	 * @version 1.0
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/findArticle/{id}")
+	public String findArticle(@PathVariable Integer id,Model model){
+			model.addAttribute("article", articleServiceImpl.findArticleById(id));
+			return "article/add";
+	}
 	
 	@RequestMapping("/toIndex")
 	public String toIndex() {

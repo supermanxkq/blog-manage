@@ -24,6 +24,10 @@ $(function() {
 		$this.event();
 		
 	}
+	//查询文章
+	Article.findArticle=function(id){
+		window.location.href=rootPath+"/article/findArticle/"+id;
+	}
 	//查询列表集合
 	Article.queryList = function(page) {
 		var article={};
@@ -59,10 +63,7 @@ $(function() {
 							'</td>'+
 							'<td class=" ">'+
 								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
-									'<a class="blue" href="#">'+
-										'<i class="icon-zoom-in bigger-130"></i>'+
-									'</a>'+
-									'<a class="green" href="#">'+
+									'<a class="green edit" href="javascript:;" onclick="Article.findArticle('+obj.id+')">'+
 										'<i class="icon-pencil bigger-130"></i>'+
 									'</a>'+
 									'<a class="red delete" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
