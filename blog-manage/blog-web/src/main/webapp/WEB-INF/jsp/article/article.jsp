@@ -135,7 +135,7 @@
 													<tr role="row">
 														<th class="center " role="columnheader"
 															rowspan="1" colspan="1"  
-															style="width: 57px;">序号 </th>
+															style="width: 30px;">序号 </th>
 														<th  role="columnheader"
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="Domain: activate to sort column ascending"
@@ -143,35 +143,35 @@
 														<th  role="columnheader" 
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="Price: activate to sort column ascending"
-															style="width: 116px;"><i
+															style="width: 126px;"><i
 															class="icon-time bigger-110 hidden-480"></i>创建时间</th>
 														<th class="hidden-480 " role="columnheader"
 															aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Clicks: activate to sort column ascending"
-															style="width: 127px;"><i
+															style="width: 77px;"><i
 															class="icon-user bigger-110 hidden-480"></i>作者</th>
 														<th  role="columnheader" 
 															aria-controls="sample-table-2" rowspan="1" colspan="1"
 															aria-label="
 															Update
 														: activate to sort column ascending"
-															style="width: 121px;">状态</th>
+															style="width: 45px;">状态</th>
 														<th class=" " role="columnheader"
 															 aria-controls="" rowspan="1"
 															colspan="1"
 															aria-label=""
-															style="width: 121px;">分类</th>
+															style="width:25px;">分类</th>
 															<th class="hidden-480 " role="columnheader"
 															aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
-															style="width: 121px;">类型</th>
+															style="width: 41px;">类型</th>
 															<th class="hidden-480 " role="columnheader"
 															aria-controls="sample-table-2" rowspan="1"
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
-															style="width: 121px;">标签</th>
+															style="width: 50px;">标签</th>
 														<th class="" role="columnheader"
 															rowspan="1" colspan="1" aria-label=""
 															style="width: 120px;"><i
