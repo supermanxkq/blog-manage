@@ -21,20 +21,16 @@ $(function() {
 					$(".typeList").append(
 							'<li class="'+colorArray[parseInt(Math.random()*7)]+' clearfix  articleType" data-id="'+obj.id+'" style="position: relative; opacity: 1; z-index: auto;">'+
 							'<label class="inline">'+
-								'<input type="checkbox" class="ace">'+
 								'<span class="lbl">'+obj.name+'</span>'+
+								'<span class="inputEdit" style="display:none;"><input type="text" value="'+obj.name+'"><a href="javascript:;" onclick="ArticleType.updateType(this,'+obj.id+');">保存</a>&nbsp;&nbsp;<a href="javascript:;" onclick="ArticleType.cancelEdit(this);">取消</a></span>'+
 							'</label>'+
 							'<div class="pull-right action-buttons">'+
-								'<a href="#" class="blue">'+
+								'<a href="javascript:;" onclick="ArticleType.editType('+obj.id+',this)" class="blue">'+
 									'<i class="icon-pencil bigger-130"></i>'+
 								'</a>'+
 								'<span class="vbar"></span>'+
 								'<a href="javascript:;" onclick="ArticleType.del('+obj.id+')" class="red">'+
 									'<i class="icon-trash bigger-130"></i>'+
-								'</a>'+
-								'<span class="vbar"></span>'+
-								'<a href="#" class="green">'+
-									'<i class="icon-flag bigger-130"></i>'+
 								'</a>'+
 							'</div>'+
 						'</li>'
@@ -82,6 +78,36 @@ $(function() {
 		      }
 	 	 });
 	}
+	//隐藏文字显示输入框
+	ArticleType.editType=function(id,obj){
+		//把所有其他的都隐藏了
+		$(".typeList").find(".articleType").siblings().find(".inputEdit").hide();
+		$(".typeList").find(".articleType").siblings().find(".lbl:hidden").show();
+		$(obj).parent().prev().find(".lbl").hide();
+		$(obj).parent().prev().find(".inputEdit").show();
+	}
+	//取消编辑
+	ArticleType.cancelEdit=function(obj){
+		$(obj).parent().prev(".lbl:hidden").show();
+		$(obj).parent().hide();
+	}
+	//修改类别
+	ArticleType.updateType=function(obj,id){
+		var name=$(obj).prev().val();
+		var data={};
+		data.id=id;
+		data.name=name;
+		$.ajax({
+			url:rootPath+"/articleType/update",
+			data:data,
+			type:'post',
+			success:function(jsonData){
+				ArticleType.queryList();
+			}
+		});
+	}
+	
+	
 	//事件
 	ArticleType.event=function(){
 		//添加类别

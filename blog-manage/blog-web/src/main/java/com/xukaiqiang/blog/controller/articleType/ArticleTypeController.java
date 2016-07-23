@@ -49,11 +49,11 @@ public class ArticleTypeController {
 		articleTypeServiceImpl.insert(ArticleType);
 		return "ok";
 	}
-	
+	@ResponseBody
 	@RequestMapping(value="/update", method = RequestMethod.POST)
 	public String update(ArticleType ArticleType) {
 		articleTypeServiceImpl.update(ArticleType);
-		return "redirect:/articleType";
+		return "ok";
 	}
 	@ResponseBody
 	@RequestMapping(value="/del/{id}", method = RequestMethod.GET)
