@@ -146,7 +146,7 @@
 	</select>
 	
 	<select id="queryArticleList" resultMap="articleVoResultMap" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
-			SELECT  a.id id,a.title title,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
+			SELECT  a.id id,a.title title,a.tags tags,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
 			`user` u ON  a.userId=u.id
 			LEFT JOIN article_type at on a.typeId=`at`.id
 			ORDER BY a.createTime DESC

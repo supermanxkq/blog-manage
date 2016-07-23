@@ -1,7 +1,10 @@
 package com.xukaiqiang.blog.article.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,9 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.xukaiqiang.blog.api.article.IArticleService;
 import com.xukaiqiang.blog.article.mapper.ArticleMapper;
+import com.xukaiqiang.blog.artileTags.mapper.ArtileTagsMapper;
 import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
 import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.model.artileTags.ArtileTags;
+import com.xukaiqiang.blog.model.tags.Tags;
+import com.xukaiqiang.blog.tags.mapper.TagsMapper;
 import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 
 /**
@@ -25,6 +32,11 @@ public class ArticleServiceImpl implements IArticleService {
 
 	@Autowired
 	private ArticleMapper articleMapper;
+	
+	@Autowired
+	private TagsMapper  tagsMapper;
+	@Autowired
+	private  ArtileTagsMapper  articleTagsMapper;
 	
 	/**
 	 * 
@@ -41,7 +53,31 @@ public class ArticleServiceImpl implements IArticleService {
 		//插入文章
 		entity.setCreateTime(new Date());
 		articleMapper.insert(entity);
-		
+		//批量插入标签到数据库
+		List<Tags> tagsList=new ArrayList<Tags>();
+		String [] tagsArray=entity.getTags().split(",");
+		for (String name : tagsArray) {
+			Tags tags=new Tags();
+			tags.setName(name);
+			tags.setNum(1);
+			tagsList.add(tags);
+		}
+		 Map<String, Object> map = new HashMap<String, Object>();  
+		 map.put("tagsList", tagsList);
+		tagsMapper.batchInsertOnDuplicateUpdate(map);
+		 map.put("tagsArray", tagsArray);
+		//获取插入的标签的主键
+		List<Tags> tags=tagsMapper.selectTagIds(map);
+		//批量插入article_tags关系
+		List<ArtileTags> articleTagsList=new ArrayList<ArtileTags>();
+		for (Tags tags2 : tags) {
+			ArtileTags artileTags=new ArtileTags();
+			artileTags.setArticleId(entity.getId());
+			artileTags.setTagsId(tags2.getId());
+			articleTagsList.add(artileTags);
+		}
+		 map.put("articleTagsList", articleTagsList);
+		articleTagsMapper.batchInsertMap(map);
 	};
 	
 	/**

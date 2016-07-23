@@ -57,6 +57,8 @@ $(function() {
 							'</td>'+
 							'<td class="hidden-480 ">'+(obj.type==1?'原创':'转载')+
 							'</td>'+
+							'<td class="hidden-480 ">'+obj.tags+
+							'</td>'+
 							'<td class=" ">'+
 								'<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">'+
 									'<a class="green edit" title="修改" href="javascript:;" onclick="Article.findArticle('+obj.id+')">'+

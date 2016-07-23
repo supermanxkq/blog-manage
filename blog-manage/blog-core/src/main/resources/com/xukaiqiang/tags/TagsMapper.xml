@@ -94,5 +94,26 @@
 	</select>
 	
 	<!-- 其他自定义SQL -->
+	<!-- 批量添加 适用于主键自增类型  不支持返回主键	-->
+	<insert id="batchInsertOnDuplicateUpdate" parameterType="java.util.Map" useGeneratedKeys="true">
+		insert into tags( <include refid="table_columns" /> ) 
+		values 
+		<foreach item="item" collection="tagsList" separator="," >
+			( <include refid="batch_entity_properties" /> )
+		</foreach>
+			ON DUPLICATE KEY UPDATE num=num+1
+	</insert>
+	<!-- 根据标签数组，查询插入后，这些标签的tagId(返回一个链表)： -->
+	<select id="selectTagIds" resultType="com.xukaiqiang.blog.model.tags.Tags" >  
+      SELECT   
+          id as id  
+      FROM tags  
+      WHERE name   
+          in  
+      <foreach item="item" index="index" collection="tagsArray"  
+          open="(" separator="," close=")">  
+            #{item}  
+      </foreach>  
+</select>  
 	
 </mapper>

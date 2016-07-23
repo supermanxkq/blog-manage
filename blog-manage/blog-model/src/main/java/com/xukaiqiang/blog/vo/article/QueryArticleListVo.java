@@ -20,7 +20,7 @@ public class QueryArticleListVo extends BaseEntity {
 	private Integer status;
 	private String typeName;
 	private Integer type;
-	
+	private String tags;
 	
 
 	/**
@@ -83,6 +83,20 @@ public class QueryArticleListVo extends BaseEntity {
 
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+
+	/**
+	 * @return the tags
+	 */
+	public String getTags() {
+		return tags;
+	}
+
+	/**
+	 * @param tags the tags to set
+	 */
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 
 }

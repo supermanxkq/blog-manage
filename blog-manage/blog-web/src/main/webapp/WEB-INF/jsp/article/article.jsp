@@ -167,6 +167,11 @@
 															colspan="1"
 															aria-label="Status: activate to sort column ascending"
 															style="width: 121px;">类型</th>
+															<th class="hidden-480 " role="columnheader"
+															aria-controls="sample-table-2" rowspan="1"
+															colspan="1"
+															aria-label="Status: activate to sort column ascending"
+															style="width: 121px;">标签</th>
 														<th class="" role="columnheader"
 															rowspan="1" colspan="1" aria-label=""
 															style="width: 120px;"><i

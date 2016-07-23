@@ -22,5 +22,6 @@
 		<mapper resource="com/xukaiqiang/article/ArticleMapper.xml" />
 		<mapper resource="com/xukaiqiang/articleType/ArticleTypeMapper.xml" />
 		<mapper resource="com/xukaiqiang/tags/TagsMapper.xml" />
+		<mapper resource="com/xukaiqiang/articleTags/ArtileTagsMapper.xml" />
 	</mappers>
 </configuration>
