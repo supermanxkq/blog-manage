@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.xukaiqiang.blog.api.articleType.IArticleTypeService;
 import com.xukaiqiang.blog.model.articleType.ArticleType;
 
@@ -40,10 +43,11 @@ public class ArticleTypeController {
 		return "articleType/list";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String add(ArticleType ArticleType) {
 		articleTypeServiceImpl.insert(ArticleType);
-		return "redirect:/articleType";
+		return "ok";
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.POST)
@@ -51,11 +55,11 @@ public class ArticleTypeController {
 		articleTypeServiceImpl.update(ArticleType);
 		return "redirect:/articleType";
 	}
-	
+	@ResponseBody
 	@RequestMapping(value="/del/{id}", method = RequestMethod.GET)
 	public String del(Model model, @PathVariable Integer id) {
 		articleTypeServiceImpl.deleteArticleTypeById(id);
-		return "redirect:/articleType";
+		return "ok";
 	}
 	
 	@ResponseBody
@@ -78,5 +82,31 @@ public class ArticleTypeController {
 	public List<ArticleType> queryAll(){
 		return articleTypeServiceImpl.queryAll();
 	}
+	/**
+	 * Class Name: ArticleTypeController.java
+	 * @Description: 跳到文章分类
+	 * @author Administrator
+	 * @date 2016年7月23日 下午2:43:25
+	 * @modifier
+	 * @modify-date 2016年7月23日 下午2:43:25
+	 * @version 1.0
+	 * @return
+	*/
+	@RequestMapping("/toArticleType")
+	public String toArticleType() {
+		return "articleType/articleType";
+	}
 	
+	@ResponseBody
+	@RequestMapping("/orderList")
+	public boolean orderList(HttpServletRequest request) {
+		List<ArticleType> items = JSONArray.parseArray(request.getParameter("list"),
+				ArticleType.class);
+		if (items == null || items.size() == 0)
+			return true;
+		for (ArticleType articleType : items) {
+			articleTypeServiceImpl.update(articleType);
+		}
+		return true;
+	}
 }

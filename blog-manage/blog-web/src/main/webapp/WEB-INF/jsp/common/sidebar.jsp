@@ -59,7 +59,7 @@
 								class="icon-double-angle-right"></i> <span class="menu-text">文章 </span>
 						</a></li>
 
-							<li><a href="buttons.html"> <i
+							<li><a href="<%=rootPath%>/articleType/toArticleType"> <i
 									class="icon-double-angle-right"></i> 分类
 							</a></li>
 

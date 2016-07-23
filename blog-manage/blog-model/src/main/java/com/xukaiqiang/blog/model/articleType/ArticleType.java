@@ -15,23 +15,43 @@ public class ArticleType extends BaseEntity {
 	
 	private String	name;		
 	private Integer	status;		
+	private Integer sequence;
+	
+	
+	/**
+	 * @return the sequence
+	 */
+	public Integer getSequence() {
+		return sequence;
+	}
+
+	/**
+	 * @param sequence the sequence to set
+	 */
+	public void setSequence(Integer sequence) {
+		this.sequence = sequence;
+	}
 
 	// Constructor
 	public ArticleType() {
 	}
 	
-	/**
-	 * full Constructor
-	 */
-	public ArticleType(Integer id, String name, Integer status) {
-		setId(id);
-		this.name = name;
-		this.status = status;
-	}
 
 	// getter && setter
 	// 在setter方法最后加上"return this;"并把返回参数改为ArticleType可以实现连缀设置属性
 	
+	/**
+	 * @param name
+	 * @param status
+	 * @param sequence
+	 */
+	public ArticleType(String name, Integer status, Integer sequence) {
+		super();
+		this.name = name;
+		this.status = status;
+		this.sequence = sequence;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -49,10 +69,5 @@ public class ArticleType extends BaseEntity {
 	public ArticleType setStatus(Integer status) {
 		this.status = status;
 		return this;
-	}
-	
-	@Override
-	public String toString() {
-		return "ArticleType [" + "id=" + getId() + ", name=" + name + ", status=" + status +  "]";
 	}
 }
