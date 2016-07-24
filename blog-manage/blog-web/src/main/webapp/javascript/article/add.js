@@ -48,6 +48,7 @@ $(function(){
 			article.userId=1;
 			article.type=$(".type").val();
 			article.tags=$(".tags").val();
+			article.isTop=0;
 			if(id==""){
 				$.ajax({
 					url:rootPath+"/article/add",
