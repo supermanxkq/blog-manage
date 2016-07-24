@@ -28,6 +28,20 @@ $(function() {
 	Article.findArticle=function(id){
 		window.location.href=rootPath+"/article/findArticle/"+id;
 	}
+	
+	Article.top=function(obj,id,isTop){
+		var data={};
+		data.id=id;
+		data.isTop=(isTop==1?0:1);
+		$.ajax({
+			url:rootPath+"/article/updateTop",
+			data:data,
+			type:'post',
+			success:function(jsonData){
+				 Article.queryList();
+			}
+		});
+	}
 	//查询列表集合
 	Article.queryList = function(page) {
 		var article={};
@@ -67,8 +81,8 @@ $(function() {
 									'<a class="red delete" title="删除" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
 										'<i class="icon-trash bigger-130"></i>'+
 									'</a>'+
-									'<a class="red delete" title="置顶" href="javascript:;" onclick="deleteArticle('+obj.id+',this)">'+
-									'<i class="icon-heart bigger-130"></i>'+
+									'<a class="red isTop" title="置顶" href="javascript:;"  onclick="Article.top(this,'+obj.id+','+obj.isTop+')">'+
+									(obj.isTop==1?'取消置顶':'置顶')+
 									'</a>'+
 								'</div>'+
 							'</td>'+

@@ -62,7 +62,13 @@ public class ArticleController {
 		articleServiceImpl.update(article2);
 		return "ok";
 	}
-
+	@ResponseBody
+	@RequestMapping(value = "/updateTop", method = RequestMethod.POST)
+	public String updateTop(Article article){
+		articleServiceImpl.update(article);
+		return "ok";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
 	public String del(Model model, @PathVariable Integer id) {

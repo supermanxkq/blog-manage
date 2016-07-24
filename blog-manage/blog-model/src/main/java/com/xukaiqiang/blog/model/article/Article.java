@@ -24,10 +24,26 @@ public class Article extends BaseEntity {
 	private Integer typeId; /*分类*/
 	private Integer type;  /*文章类型  1原创  2 转载*/
 	private String tags;/*标签*/
+	private Integer isTop;/*是否置顶0不置顶1置顶*/
 	
 	
 	
-	
+
+	/**
+	 * @return the isTop
+	 */
+	public Integer getIsTop() {
+		return isTop;
+	}
+
+
+	/**
+	 * @param isTop the isTop to set
+	 */
+	public void setIsTop(Integer isTop) {
+		this.isTop = isTop;
+	}
+
 
 	/**
 	 * @return the tags

@@ -21,7 +21,23 @@ public class QueryArticleListVo extends BaseEntity {
 	private String typeName;
 	private Integer type;
 	private String tags;
+	private Integer isTop;
 	
+	
+
+	/**
+	 * @return the isTop
+	 */
+	public Integer getIsTop() {
+		return isTop;
+	}
+
+	/**
+	 * @param isTop the isTop to set
+	 */
+	public void setIsTop(Integer isTop) {
+		this.isTop = isTop;
+	}
 
 	/**
 	 * @return the type

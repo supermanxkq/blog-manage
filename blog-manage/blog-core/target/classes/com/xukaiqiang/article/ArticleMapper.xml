@@ -11,6 +11,7 @@
 		<result property="typeId" column="typeId" />
 		<result property="type" column="type" />
 		<result property="tags" column="tags" />
+		<result property="isTop" column="isTop" />
 	</resultMap>
 	<resultMap type="com.xukaiqiang.blog.vo.article.QueryArticleListVo" id="articleVoResultMap">
 		<result property="id" column="id" />
@@ -22,6 +23,7 @@
 		<result property="typeName" column="typeName" />
 		<result property="type" column="type" />
 		<result property="tags" column="tags" />
+		<result property="isTop" column="isTop" />
 	</resultMap>
 	
 	<sql id="table_columns">
@@ -33,7 +35,8 @@
 		status,
 		typeId,
 		type,
-		tags
+		tags,
+		isTop
     </sql>
 	<sql id="entity_properties">
 		#{id},
@@ -44,7 +47,8 @@
 		#{status},
 		#{typeId},
 		#{type},
-		#{tags}
+		#{tags},
+		#{isTop}
 	</sql>
 	<sql id="batch_entity_properties">
 		#{item.id},
@@ -55,7 +59,8 @@
 		#{item.status},
 		#{item.typeId},
 		#{item.type},
-		#{item.tags}
+		#{item.tags},
+		#{item.isTop}
 	</sql>
 	
 	<!-- 适用于主键自增类型 -->
@@ -99,6 +104,7 @@
 			<if test="typeId != null and typeId != ''">typeId = #{typeId},</if>
 			<if test="type != null and type != ''">type = #{type},</if>
 			<if test="tags != null and tags != ''">tags = #{tags},</if>
+			<if test="isTop != null">isTop = #{isTop},</if>
 		</trim>
 		<where>id = #{id}</where>
 	</update>
@@ -125,6 +131,7 @@
 			<if test="typeId != null and typeId != ''">and typeId = #{typeId}</if>
 			<if test="type != null and type != ''">and type = #{type}</if>
 			<if test="tags != null and tags != ''">and tags = #{tags}</if>
+			<if test="isTop != null and isTop != ''">and isTop = #{isTop}</if>
 		</trim>
 	</sql>
 	
@@ -146,10 +153,10 @@
 	</select>
 	
 	<select id="queryArticleList" resultMap="articleVoResultMap" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
-			SELECT  a.id id,a.title title,a.tags tags,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
+			SELECT  a.id id,a.title title,a.tags tags,a.isTop isTop,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
 			`user` u ON  a.userId=u.id
 			LEFT JOIN article_type at on a.typeId=`at`.id
-			ORDER BY a.createTime DESC
+			ORDER BY a.isTop DESC,a.createTime desc
 			limit #{firstIndex},#{pageSize}
 	</select>
 	<select id="pageCountArticle" resultType="int" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
