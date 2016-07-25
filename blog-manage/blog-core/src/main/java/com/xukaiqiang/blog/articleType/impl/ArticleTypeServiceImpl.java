@@ -96,6 +96,8 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
 		articleTypeMapper.deleteById(id);
 		//查询出该分类下的所有文章的编号
 		List<Integer> articleIdList=articleMapper.findIdByTypeId(id);
+		//如果分类下有文章进行删除分类文章等操作
+		if(articleIdList.size()>0){
 		//删除该分类下的所有的文章
 		articleMapper.deleteByTypeId(id);
 		//根据文章的编号查找对应的tagId集合
@@ -113,6 +115,7 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
 		}
 		//删除空引用标签
 		tagsMapper.delete0num();
+		}
 	};
 	
 	/**
