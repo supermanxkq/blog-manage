@@ -40,5 +40,35 @@ public interface TagsMapper extends BaseMapper<Tags> {
 	*/
 		
 	List<Tags> selectTagIds(Map<String, Object> map);
+
+
+	
+	/**
+	 * Class Name: TagsMapper.java
+	 * @Description:减少标签的引用
+	 * @author Administrator
+	 * @date 2016年7月26日 上午2:06:52
+	 * @modifier
+	 * @modify-date 2016年7月26日 上午2:06:52
+	 * @version 1.0
+	 * @param tagId
+	*/
+		
+	void subUpdate(Integer tagId);
+
+
+	
+	/**
+	 * Class Name: TagsMapper.java
+	 * @Description: 删除空引用标签
+	 * @author Administrator
+	 * @date 2016年7月26日 上午2:51:33
+	 * @modifier
+	 * @modify-date 2016年7月26日 上午2:51:33
+	 * @version 1.0
+	*/
+	void delete0num();
+
+
 	
 }

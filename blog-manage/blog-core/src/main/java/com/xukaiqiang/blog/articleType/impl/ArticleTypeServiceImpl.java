@@ -1,14 +1,21 @@
 package com.xukaiqiang.blog.articleType.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xukaiqiang.blog.api.articleType.IArticleTypeService;
+import com.xukaiqiang.blog.article.mapper.ArticleMapper;
 import com.xukaiqiang.blog.articleType.mapper.ArticleTypeMapper;
+import com.xukaiqiang.blog.artileTags.mapper.ArtileTagsMapper;
 import com.xukaiqiang.blog.model.articleType.ArticleType;
+import com.xukaiqiang.blog.model.artileTags.ArtileTags;
+import com.xukaiqiang.blog.model.tags.Tags;
+import com.xukaiqiang.blog.tags.mapper.TagsMapper;
 
 /**
  * Service Implementation:ArticleType
@@ -21,7 +28,12 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
 
 	@Autowired
 	private ArticleTypeMapper articleTypeMapper;
-	
+	@Autowired
+	private  ArticleMapper  articleMapper;
+	@Autowired
+	private   ArtileTagsMapper articleTagsMapper;
+	@Autowired
+	private   TagsMapper  tagsMapper;
 	/**
 	 * 
 	* @Title: saveArticleType
@@ -80,7 +92,27 @@ public class ArticleTypeServiceImpl implements IArticleTypeService {
 	 */
 	 @Override
 	public void deleteArticleTypeById(Integer id){
+		//根据id删除ArticleType
 		articleTypeMapper.deleteById(id);
+		//查询出该分类下的所有文章的编号
+		List<Integer> articleIdList=articleMapper.findIdByTypeId(id);
+		//删除该分类下的所有的文章
+		articleMapper.deleteByTypeId(id);
+		//根据文章的编号查找对应的tagId集合
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("articleIdMap", articleIdList.toArray());
+		List<Integer> tagsIdList=articleTagsMapper.findByArticleId(map);
+		//删除文章标签关联表
+		articleTagsMapper.deleteByArticleId(map);
+		//更新标签表数量
+		//判断标签的引用数量是否为0，为0就删除，否则就进行更新
+		for (Integer tagId : tagsIdList) {
+			Tags  tags=	tagsMapper.findById(tagId);
+				//数量减少
+				tagsMapper.subUpdate(tagId);
+		}
+		//删除空引用标签
+		tagsMapper.delete0num();
 	};
 	
 	/**

@@ -42,6 +42,7 @@ $(function() {
 	
 	//删除
 	ArticleType.del=function(id){
+		if(confirm("确定要进行删除吗？删除之后,该分类下所有的文章将全部删除！")){
 		$.ajax({
 			async:false,
 			url:rootPath+"/articleType/del/"+id,
@@ -54,6 +55,7 @@ $(function() {
 				ArticleType.updateIndex();
 			}
 		});
+		}
 	}
 	//更新列表的索引
 	ArticleType.updateIndex=function(){

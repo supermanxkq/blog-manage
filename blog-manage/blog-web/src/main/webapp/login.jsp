@@ -58,10 +58,10 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">Ace</span>
-									<span class="white">Application</span>
+									<span class="red">xukaiqiang</span>
+									<span class="white">后台管理</span>
 								</h1>
-								<h4 class="blue">&copy; Company Name</h4>
+								<h4 class="blue">&copy;xukaiqiang</h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -72,7 +72,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												Please Enter Your Information
+											请输入用户登录信息
 											</h4>
 
 											<div class="space-6"></div>

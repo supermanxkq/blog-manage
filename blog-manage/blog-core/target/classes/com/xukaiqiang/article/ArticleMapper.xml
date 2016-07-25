@@ -162,4 +162,14 @@
 	<select id="pageCountArticle" resultType="int" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
 		select count(id) from article
 	</select>
+	<!-- 根据编号进行删除 -->
+	<delete id="deleteByTypeId" parameterType="int">
+		  delete from  article 
+		  where  typeId=#{typeId}
+	</delete>
+	<!-- 根据文章类型编号查询文章编号 -->
+	<select id="findIdByTypeId" parameterType="int" resultType="int">
+		  select a.id   from  article a
+		  where  a.typeId=#{typeId}
+	</select>
 </mapper>
