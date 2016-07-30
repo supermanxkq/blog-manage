@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.xukaiqiang.blog.api.article.IArticleService;
 import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
-import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.model.article.QueryArticleVo;
 import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 
 /**
@@ -126,8 +126,8 @@ public class ArticleController {
 	 */
 	@ResponseBody
 	@RequestMapping("/queryTypeCount")
-	public List<TypeCountVo> queryTypeCount() {
-		List<TypeCountVo> list = articleServiceImpl.queryTypeCount();
+	public List<QueryArticleVo> queryTypeCount() {
+		List<QueryArticleVo> list = articleServiceImpl.queryTypeCount();
 		return list;
 	}
 	/**

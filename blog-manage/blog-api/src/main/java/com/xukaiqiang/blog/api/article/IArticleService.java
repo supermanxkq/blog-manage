@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
-import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.model.article.QueryArticleVo;
 import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 /**
  * Service Interface:Article
@@ -115,5 +115,5 @@ public interface IArticleService  {
 		
 	PageFinder<QueryArticleListVo> queryArticleList(QueryArticleListVo search);
 
-	List<TypeCountVo> queryTypeCount();
+	List<QueryArticleVo> queryTypeCount();
 }

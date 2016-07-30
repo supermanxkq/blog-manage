@@ -15,7 +15,7 @@ import com.xukaiqiang.blog.article.mapper.ArticleMapper;
 import com.xukaiqiang.blog.artileTags.mapper.ArtileTagsMapper;
 import com.xukaiqiang.blog.common.PageFinder;
 import com.xukaiqiang.blog.model.article.Article;
-import com.xukaiqiang.blog.model.article.TypeCountVo;
+import com.xukaiqiang.blog.model.article.QueryArticleVo;
 import com.xukaiqiang.blog.model.artileTags.ArtileTags;
 import com.xukaiqiang.blog.model.tags.Tags;
 import com.xukaiqiang.blog.tags.mapper.TagsMapper;
@@ -182,7 +182,7 @@ public class ArticleServiceImpl implements IArticleService {
 		return pageFinder;
 	};
 	
-	public List<TypeCountVo> queryTypeCount(){
+	public List<QueryArticleVo> queryTypeCount(){
 		return articleMapper.queryTypeCount();
 	}
 }
