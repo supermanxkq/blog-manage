@@ -148,9 +148,6 @@
 	</select>
 	
 	<!-- 其他自定义SQL -->
-	<select id="queryTypeCount" resultType="com.xukaiqiang.blog.model.article.TypeCountVo">
-		SELECT at.name name,count(a.typeId) count from article a,article_type at where a.typeId=at.id GROUP BY a.typeId,at.name
-	</select>
 	
 	<select id="queryArticleList" resultMap="articleVoResultMap" parameterType="com.xukaiqiang.blog.vo.article.QueryArticleListVo">
 			SELECT  a.id id,a.title title,a.tags tags,a.isTop isTop,a.type,a.createTime createTime,u.userName userName,a.`status` status,`at`.`name` typeName  FROM  article  a LEFT  JOIN 
