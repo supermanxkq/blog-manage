@@ -163,7 +163,7 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label no-padding-right" for="form-input-readonly">文章摘要 </label>
 										<div class="col-sm-10">
-											<textarea class="form-control limited" id="form-field-9" maxlength="50"></textarea>
+											<textarea class="form-control limited summary" id="form-field-9" maxlength="150">${article.summary}</textarea>
 										</div>
 									</div>
 									<div class="form-group">

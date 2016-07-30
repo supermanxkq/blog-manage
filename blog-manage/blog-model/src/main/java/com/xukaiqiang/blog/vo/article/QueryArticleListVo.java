@@ -22,8 +22,24 @@ public class QueryArticleListVo extends BaseEntity {
 	private Integer type;
 	private String tags;
 	private Integer isTop;
+	private String summary;
 	
 	
+	
+
+	/**
+	 * @return the summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+	/**
+	 * @param summary the summary to set
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
 
 	/**
 	 * @return the isTop

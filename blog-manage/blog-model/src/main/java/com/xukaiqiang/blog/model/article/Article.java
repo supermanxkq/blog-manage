@@ -25,9 +25,25 @@ public class Article extends BaseEntity {
 	private Integer type;  /*文章类型  1原创  2 转载*/
 	private String tags;/*标签*/
 	private Integer isTop;/*是否置顶0不置顶1置顶*/
+	private String summary;/*文章摘要*/
 	
 	
-	
+
+	/**
+	 * @return the summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+
+	/**
+	 * @param summary the summary to set
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
 
 	/**
 	 * @return the isTop

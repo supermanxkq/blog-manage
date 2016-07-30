@@ -59,6 +59,7 @@ public class ArticleController {
 		article2.setType(article.getType());
 		article2.setTypeId(article.getTypeId());
 		article2.setUserId(article.getUserId());
+		article2.setSummary(article.getSummary());
 		articleServiceImpl.update(article2);
 		return "ok";
 	}

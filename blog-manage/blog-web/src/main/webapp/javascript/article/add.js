@@ -49,6 +49,7 @@ $(function(){
 			article.type=$(".type").val();
 			article.tags=$(".tags").val();
 			article.isTop=0;
+			article.summary=$(".summary").val();
 			if(id==""){
 				$.ajax({
 					url:rootPath+"/article/add",
