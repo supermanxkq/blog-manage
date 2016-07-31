@@ -1,8 +1,6 @@
 package com.xukaiqiang.blog.model.article;
 
 import java.util.Date;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import com.xukaiqiang.blog.util.ShortDateSerializer;
 
 import com.xukaiqiang.blog.common.BaseEntity;
 
@@ -120,7 +118,6 @@ public class Article extends BaseEntity {
 		return this;
 	}
 	
-	@JsonSerialize(using = ShortDateSerializer.class)
 	public Date getCreateTime() {
 		return createTime;
 	}
