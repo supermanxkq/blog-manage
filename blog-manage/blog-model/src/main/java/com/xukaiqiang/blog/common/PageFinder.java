@@ -6,7 +6,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class PageFinder<T> implements Serializable {
 
-	private static int DEFAULT_PAGE_SIZE = 15;
+	private static int DEFAULT_PAGE_SIZE = 3;
 
 	/**
 	 * 每页的记录数

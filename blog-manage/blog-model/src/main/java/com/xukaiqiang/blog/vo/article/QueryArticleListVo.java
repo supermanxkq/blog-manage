@@ -23,9 +23,38 @@ public class QueryArticleListVo extends BaseEntity {
 	private String tags;
 	private Integer isTop;
 	private String summary;
+	private Integer typeId;
+	private String createTimeStr;
 	
 	
-	
+
+	/**
+	 * @return the createTimeStr
+	 */
+	public String getCreateTimeStr() {
+		return createTimeStr;
+	}
+
+	/**
+	 * @param createTimeStr the createTimeStr to set
+	 */
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
+	}
+
+	/**
+	 * @return the typeId
+	 */
+	public Integer getTypeId() {
+		return typeId;
+	}
+
+	/**
+	 * @param typeId the typeId to set
+	 */
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
+	}
 
 	/**
 	 * @return the summary

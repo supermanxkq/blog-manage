@@ -15,7 +15,7 @@ public class BaseModel {
 	/**
 	 * 每页记录数
 	 */
-	private Integer pageSize=20;
+	private Integer pageSize=15;
 	
 	/**
 	 * 共有多少条

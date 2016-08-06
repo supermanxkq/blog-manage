@@ -133,6 +133,7 @@ $(function() {
 
 //删除文章
 function deleteArticle(id, obj) {
+	if(confirm("确定要删除吗？删除之后不可恢复！")){
 			var url = rootPath + "/article/del/" + id;
 			$.ajax({
 				url : url,
@@ -148,4 +149,5 @@ function deleteArticle(id, obj) {
 				  complete:function(XMLHttpRequest,textStatus){
 			      }
 			});
+	}
 }

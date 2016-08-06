@@ -5,23 +5,39 @@ package com.xukaiqiang.blog.model.article;
  *
  */
 public class QueryArticleVo {
+	private Integer id;
 	private String name;//分类名称
 	private Integer count;//分类下的数量
-	private String  dateCount;//根据日期进行分类查询返回
+	private String  createTime;//根据日期进行分类查询返回
 	
 
 	/**
-	 * @return the dateCount
+	 * @return the id
 	 */
-	public String getDateCount() {
-		return dateCount;
+	public Integer getId() {
+		return id;
 	}
 
 	/**
-	 * @param dateCount the dateCount to set
+	 * @param id the id to set
 	 */
-	public void setDateCount(String dateCount) {
-		this.dateCount = dateCount;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	/**
+	 * @return the createTime
+	 */
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * @param createTime the createTime to set
+	 */
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
 	}
 
 	public String getName() {

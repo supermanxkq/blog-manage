@@ -178,6 +178,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>manage</finalName>
+		<finalName>blog-web</finalName>
 	</build>
 </project>
