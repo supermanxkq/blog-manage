@@ -29,6 +29,7 @@ $(function() {
 		window.location.href=rootPath+"/article/findArticle/"+id;
 	}
 	
+	//置顶和取消置顶
 	Article.top=function(obj,id,isTop){
 		var data={};
 		data.id=id;

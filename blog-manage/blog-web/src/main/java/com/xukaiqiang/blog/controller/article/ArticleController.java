@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xukaiqiang.blog.api.article.IArticleService;
 import com.xukaiqiang.blog.common.PageFinder;
+import com.xukaiqiang.blog.controller.lucene.BlogIndex;
 import com.xukaiqiang.blog.model.article.Article;
 import com.xukaiqiang.blog.model.article.QueryArticleVo;
 import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
@@ -33,6 +33,8 @@ import com.xukaiqiang.blog.vo.article.QueryArticleListVo;
 public class ArticleController {
 	@Autowired
 	private IArticleService articleServiceImpl;
+	
+	BlogIndex blogIndex=new BlogIndex();
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model, Article search) {
@@ -44,15 +46,42 @@ public class ArticleController {
 		return "article/list";
 	}
 
+	
+	/**
+	 * Class Name: ArticleController.java
+	 * @Description: 添加博客信息
+	 * @author Administrator
+	 * @date 2016年8月28日 上午1:00:10
+	 * @modifier
+	 * @modify-date 2016年8月28日 上午1:00:10
+	 * @version 1.0
+	 * @param article
+	 * @return
+	 * @throws Exception
+	*/
 	@ResponseBody
 	@RequestMapping(value = "/add")
-	public String add(Article article) {
+	public String add(Article article) throws Exception {
 		articleServiceImpl.insert(article);
+		blogIndex.addIndex(article);
 		return "ok";
 	}
+	
+	/**
+	 * Class Name: ArticleController.java
+	 * @Description: 更新博客信息
+	 * @author Administrator
+	 * @date 2016年8月28日 上午1:00:29
+	 * @modifier
+	 * @modify-date 2016年8月28日 上午1:00:29
+	 * @version 1.0
+	 * @param article
+	 * @return
+	 * @throws Exception
+	*/
 	@ResponseBody
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Article article) {
+	public String update(Article article) throws Exception {
 		Article article2=articleServiceImpl.findArticleById(article.getId());
 		article2.setContent(article.getContent());
 		article2.setTitle(article.getTitle());
@@ -61,8 +90,22 @@ public class ArticleController {
 		article2.setUserId(article.getUserId());
 		article2.setSummary(article.getSummary());
 		articleServiceImpl.update(article2);
+		blogIndex.updateIndex(article2);
 		return "ok";
 	}
+	
+	/**
+	 * 
+	 * Class Name: ArticleController.java
+	 * @Description: 置顶和取消置顶
+	 * @author Administrator
+	 * @date 2016年8月28日 上午3:18:02
+	 * @modifier
+	 * @modify-date 2016年8月28日 上午3:18:02
+	 * @version 1.0
+	 * @param article
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/updateTop", method = RequestMethod.POST)
 	public String updateTop(Article article){
@@ -72,8 +115,9 @@ public class ArticleController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
-	public String del(Model model, @PathVariable Integer id) {
+	public String del(Model model, @PathVariable Integer id) throws Exception {
 		articleServiceImpl.deleteArticleById(id);
+		blogIndex.deleteIndex(id.toString());
 		return "1";
 	}
 
